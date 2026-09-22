@@ -1,6 +1,6 @@
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Instagram, Mail, Menu, MessageCircle, MoveDownRight, Search, ShoppingBag, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
-import { type FormEvent, useEffect, useState } from 'react'
+import { type FormEvent, type ReactNode, useEffect, useState } from 'react'
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { collectionTiles, homeEditorial, navItems, products, type Product } from './data/site'
 
@@ -27,7 +27,21 @@ function BrandImage({ src, alt, label = 'SYBEL / IMAGE', eager = false, classNam
   )
 }
 
-function Reveal({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function BrandLogo({ variant = 'header' }: { variant?: 'header' | 'footer' }) {
+  const [failed, setFailed] = useState(false)
+  const src = variant === 'footer'
+    ? '/assets/brand/logo-light.svg'
+    : '/assets/brand/logo-dark.svg'
+  const className = variant === 'footer' ? 'footer-logo' : 'brand-logo'
+
+  if (failed) {
+    return <span className={variant === 'footer' ? 'footer-wordmark' : 'brand-wordmark'}>SYBEL</span>
+  }
+
+  return <img className={className} src={src} alt="SYBEL" onError={() => setFailed(true)} />
+}
+
+function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   return (
     <motion.div
       className={className}
@@ -57,7 +71,7 @@ function SiteHeader() {
           {open ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
         </button>
 
-        <Link className="brand-wordmark" to="/" aria-label="SYBEL home">SYBEL</Link>
+        <Link className="brand-logo-link" to="/" aria-label="SYBEL home"><BrandLogo /></Link>
 
         <nav className="site-header__nav" aria-label="Main navigation">
           {navItems.map((item) => (
@@ -367,7 +381,7 @@ function SiteFooter() {
     <footer className="site-footer">
       <div className="shell site-footer__grid">
         <div>
-          <Link to="/" className="footer-wordmark">SYBEL</Link>
+          <Link to="/" className="footer-logo-link" aria-label="SYBEL home"><BrandLogo variant="footer" /></Link>
           <p className="footer-intro">Contemporary Habesha clothing shaped by craft, restraint, and modern expression.</p>
         </div>
         <div className="footer-column">
