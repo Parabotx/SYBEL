@@ -1,6 +1,6 @@
 # SYBEL
 
-Premium frontend foundation for **SYBEL**, a contemporary Habesha clothing brand.
+Premium frontend foundation for SYBEL, a contemporary Habesha clothing brand.
 
 ## Stack
 
@@ -32,12 +32,13 @@ Gold is treated as a premium material accent, not a loud background color.
 
 Brand files go in public/assets/brand/
 
-Recommended:
-- logo-light.png
-- logo-dark.png
-- mark.png
-- favicon.png
-- wordmark.png
+- logo-dark.png — full SYBEL logo for light backgrounds
+- logo-light.png — full SYBEL logo for dark backgrounds
+- mark.png — standalone SYBEL symbol for compact/icon uses
+
+A separate wordmark image is not required. The existing logo assets are reused wherever the full brand logo is needed.
+
+A separate favicon image is not required. The browser is given the existing dark and light logo PNGs and selects between them with prefers-color-scheme. The page also declares support for light/dark color schemes.
 
 Photography goes in public/assets/images/
 
