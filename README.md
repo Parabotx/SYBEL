@@ -33,11 +33,11 @@ Gold is treated as a premium material accent, not a loud background color.
 Brand files go in public/assets/brand/
 
 Recommended:
-- logo-light.svg
-- logo-dark.svg
-- mark.svg
-- favicon.svg
-- wordmark.svg
+- logo-light.png
+- logo-dark.png
+- mark.png
+- favicon.png
+- wordmark.png
 
 Photography goes in public/assets/images/
 
