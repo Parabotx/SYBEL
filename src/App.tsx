@@ -30,8 +30,8 @@ function BrandImage({ src, alt, label = 'SYBEL / IMAGE', eager = false, classNam
 function BrandLogo({ variant = 'header' }: { variant?: 'header' | 'footer' }) {
   const [failed, setFailed] = useState(false)
   const src = variant === 'footer'
-    ? '/assets/brand/logo-light.svg'
-    : '/assets/brand/logo-dark.svg'
+    ? '/assets/brand/logo-light.png'
+    : '/assets/brand/logo-dark.png'
   const className = variant === 'footer' ? 'footer-logo' : 'brand-logo'
 
   if (failed) {
