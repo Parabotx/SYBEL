@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Instagram, Mail, Menu, MessageCircle, MoveDownRight, Search, ShoppingBag, X } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Instagram, Mail, Menu, MessageCircle, ArrowDownRight, Search, ShoppingBag, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { type FormEvent, type ReactNode, useEffect, useState } from 'react'
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
@@ -180,7 +180,7 @@ function Home() {
               SYBEL is a new expression of <em>Habesha dress</em>—rooted in craft,
               refined through contemporary form, and made to be remembered.
             </p>
-            <Link className="text-link" to="/about">Discover our story <MoveDownRight aria-hidden="true" size={15} strokeWidth={1.3} /></Link>
+            <Link className="text-link" to="/about">Discover our story <ArrowDownRight aria-hidden="true" size={15} strokeWidth={1.3} /></Link>
           </Reveal>
         </div>
       </section>
@@ -205,7 +205,7 @@ function Home() {
               <Reveal key={tile.title} delay={index * 0.07}>
                 <Link to="/collection" className="collection-tile">
                   <BrandImage src={tile.image} alt={tile.title} label={tile.kicker} />
-                  <div className="collection-tile__caption"><span>{tile.kicker}</span><h3>{tile.title}</h3><ArrowRight size={18} /></div>
+                  <div className="collection-tile__caption"><span>{tile.kicker}</span><h3>{tile.title}</h3><ArrowRight aria-hidden="true" size={16} strokeWidth={1.3} /></div>
                 </Link>
               </Reveal>
             ))}
@@ -223,7 +223,7 @@ function Home() {
               From the architecture of the silhouette to the smallest woven detail,
               SYBEL treats Ethiopian visual language as a living design system—not a costume.
             </p>
-            <Link className="text-link" to="/about">Read the SYBEL story <ArrowRight size={16} /></Link>
+            <Link className="text-link" to="/about">Read the SYBEL story <ArrowRight aria-hidden="true" size={15} strokeWidth={1.3} /></Link>
           </Reveal>
         </div>
       </section>
@@ -243,7 +243,7 @@ function Home() {
         <div className="shell closing-cta__inner">
           <span className="section-number">06 / NEXT</span>
           <h2>Dress the moment.</h2>
-          <Link className="button button--dark" to="/collection">Explore SYBEL <ArrowRight size={17} /></Link>
+          <Link className="button button--dark" to="/collection">Explore SYBEL <ArrowRight aria-hidden="true" size={16} strokeWidth={1.3} /></Link>
         </div>
       </section>
     </div>
@@ -367,7 +367,7 @@ function Contact() {
                 </select>
               </label>
               <label>Message<textarea name="message" rows={6} placeholder="Tell us about your request…" required /></label>
-              <button className="button button--dark" type="submit">{sent ? 'Inquiry prepared' : 'Send inquiry'} <ArrowUpRight size={17} /></button>
+              <button className="button button--dark" type="submit">{sent ? 'Inquiry prepared' : 'Send inquiry'} <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.3} /></button>
             </form>
           </Reveal>
         </div>
@@ -395,7 +395,7 @@ function SiteFooter() {
         </div>
         <div className="footer-cta">
           <span className="footer-label">Private inquiries</span>
-          <Link className="text-link" to="/contact">Begin a conversation <ArrowUpRight size={16} /></Link>
+          <Link className="text-link" to="/contact">Begin a conversation <ArrowUpRight aria-hidden="true" size={15} strokeWidth={1.3} /></Link>
         </div>
       </div>
       <div className="shell site-footer__bottom"><span>© {new Date().getFullYear()} SYBEL</span><span>Designed for a new era of Habesha fashion.</span></div>
