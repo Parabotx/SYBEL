@@ -646,7 +646,6 @@ body,button,input,textarea,select{font-family:var(--sans)}
 .hero>.hero__media{animation:hero-image-enter 2.2s cubic-bezier(.22,1,.36,1) both}
 .hero>.hero__media img{object-position:71% center;filter:saturate(.98) contrast(1.015);transform:scale(1.01);animation:hero-image-breathe 15s ease-out .3s both}
 .hero__atmosphere{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(14,10,6,.58) 0%,rgba(14,10,6,.30) 30%,rgba(14,10,6,.08) 57%,rgba(14,10,6,.02) 100%),linear-gradient(0deg,rgba(13,9,5,.38) 0%,rgba(13,9,5,.06) 52%,rgba(13,9,5,.14) 100%)}
-.hero__grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
 .hero__content{z-index:3;min-height:100svh;height:100svh;justify-content:center;padding-top:clamp(120px,17vh,168px);padding-bottom:clamp(96px,12vh,122px);padding-right:min(52%,650px)}
 .hero__kicker{margin-bottom:25px;color:rgba(245,239,228,.66);font-size:.62rem;letter-spacing:.26em}
 .hero h1{max-width:700px;font-family:var(--serif);font-size:clamp(4.2rem,7.8vw,9rem);line-height:.84;font-weight:500;letter-spacing:-.065em}
