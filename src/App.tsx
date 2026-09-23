@@ -268,7 +268,7 @@ function Collection() {
               </Link>
             ))}
           </div>
-          <Reveal><BrandImage src="/assets/images/collection-main.jpg" alt="SYBEL collection editorial" label="SYBEL / COLLECTION" className="collection-main-image" /></Reveal>
+          <Reveal><BrandImage src="/assets/images/collection-main.png" alt="SYBEL collection editorial" label="SYBEL / COLLECTION" className="collection-main-image" /></Reveal>
         </div>
       </section>
 
@@ -302,7 +302,7 @@ function About() {
       </section>
 
       <section className="about-feature shell">
-        <Reveal><BrandImage src="/assets/images/about-studio.jpg" alt="SYBEL studio" label="SYBEL / STUDIO" /></Reveal>
+        <Reveal><BrandImage src="/assets/images/about-studio.png" alt="SYBEL studio" label="SYBEL / STUDIO" /></Reveal>
         <Reveal delay={0.08}>
           <span className="section-number">02 / THE IDEA</span>
           <h2>Not nostalgia. Continuity.</h2>
