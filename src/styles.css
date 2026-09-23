@@ -632,7 +632,7 @@ img { display: block; max-width: 100%; }
 /* SYBEL campaign hero overrides */
 :root{--serif:'Bodoni Moda','Times New Roman',serif;--sans:'Manrope',ui-sans-serif,system-ui,sans-serif;--ivory:#f5efe4;--bronze:#a98b58;--bronze-bright:#c4aa78}
 body,button,input,textarea,select{font-family:var(--sans)}
-.site-header--home{background:linear-gradient(180deg,rgba(12,9,6,.42),rgba(12,9,6,0));border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.site-header--home{background:linear-gradient(180deg,rgba(12,9,6,.42),rgba(12,9,6,0));border-bottom-color:transparent;}
 .site-header--home .site-header__inner{min-height:86px}
 .site-header--home .brand-logo-link{justify-self:start}
 .site-header--home .brand-logo{max-width:154px;max-height:50px}
@@ -860,9 +860,6 @@ body,button,input,textarea,select{font-family:var(--sans)}
 }
 .site-header--home .nav-link:hover{
   color:var(--bronze-bright);
-}
-.hero__grain{
-  display:none!important;
 }
 .hero__atmosphere{
   background:
