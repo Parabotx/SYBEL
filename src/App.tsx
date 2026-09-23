@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Instagram, Mail, Menu, MessageCircle, ArrowDownRight, Search, ShoppingBag, X } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Mail, Menu, MessageCircle, ArrowDownRight, Search, ShoppingBag, X } from 'lucide-react'
+import { FiInstagram } from 'react-icons/fi'
 import { AnimatePresence, motion } from 'motion/react'
 import { type FormEvent, type ReactNode, useEffect, useState } from 'react'
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
@@ -369,7 +370,7 @@ function Contact() {
               <p className="muted-note">Replace these placeholders with the official brand contact details when the company assets are added.</p>
               <a href="mailto:hello@sybel.example"><Mail aria-hidden="true" size={16} strokeWidth={1.3} /> hello@sybel.example</a>
               <a href="#"><MessageCircle aria-hidden="true" size={16} strokeWidth={1.3} /> WhatsApp / phone</a>
-              <a href="#"><Instagram aria-hidden="true" size={16} strokeWidth={1.3} /> Instagram</a>
+              <a href="#"><FiInstagram aria-hidden="true" size={16} strokeWidth={1.3} /> Instagram</a>
             </div>
           </Reveal>
 
@@ -409,7 +410,7 @@ function SiteFooter() {
         </div>
         <div className="footer-column">
           <span className="footer-label">Connect</span>
-          <a href="#" aria-label="Instagram"><Instagram aria-hidden="true" size={15} strokeWidth={1.3} /> Instagram</a>
+          <a href="#" aria-label="Instagram"><FiInstagram aria-hidden="true" size={15} strokeWidth={1.3} /> Instagram</a>
           <a href="mailto:hello@sybel.example"><Mail aria-hidden="true" size={15} strokeWidth={1.3} /> Email</a>
         </div>
         <div className="footer-cta">
