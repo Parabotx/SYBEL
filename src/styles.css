@@ -727,3 +727,100 @@ body,button,input,textarea,select{font-family:var(--sans)}
 }
 .site-header--home .mobile-menu__inner span{color:var(--bronze-bright)}
 .site-header--home .mobile-menu__inner a:hover{color:var(--bronze-bright)}
+
+/* SYBEL refinement pass: quieter copy, cleaner identity, stronger header contrast */
+.site-header--home{border-bottom:0!important;box-shadow:none}
+.site-header--home .site-header__inner{position:relative}
+.site-header--home .brand-logo-link{display:inline-flex;align-items:center;min-width:0}
+.site-header--home .brand-lockup{display:inline-flex;align-items:center;gap:10px;color:var(--ivory)}
+.brand-lockup__mark{display:block;width:31px;height:31px;object-fit:contain;flex:0 0 auto}
+.brand-lockup__type{display:grid;grid-template-rows:auto auto;gap:3px;align-items:start}
+.brand-lockup__word{font-family:var(--serif);font-size:1.02rem;line-height:.9;font-weight:500;letter-spacing:.245em;white-space:nowrap}
+.brand-lockup__descriptor{font-family:var(--sans);font-size:.47rem;line-height:1;letter-spacing:.34em;text-transform:uppercase;color:var(--bronze-bright);padding-left:.05em}
+.brand-lockup--fallback{display:grid!important;gap:3px}
+.brand-lockup--fallback .brand-lockup__word{font-size:1.02rem}
+.brand-lockup--fallback .brand-lockup__descriptor{font-size:.47rem}
+.site-header--home .site-header__nav{padding:0;background:transparent}
+.site-header--home .nav-link{
+  color:rgba(250,245,235,.9);
+  text-shadow:0 1px 14px rgba(0,0,0,.52);
+  font-weight:500;
+  transition:color .3s ease,transform .3s ease;
+}
+.site-header--home .nav-link:hover{color:#fff;transform:translateY(-1px)}
+.site-header--home .nav-link::after{height:1px;box-shadow:0 0 12px rgba(196,170,120,.45)}
+.site-header--home .icon-button{
+  color:rgba(250,245,235,.92);
+  filter:drop-shadow(0 1px 10px rgba(0,0,0,.38))
+}
+.site-header--home .icon-button:hover{background:rgba(255,255,255,.07);transform:translateY(-1px)}
+.hero__content{padding-right:min(48%,610px)}
+.hero__kicker{font-family:var(--sans);font-weight:500;letter-spacing:.28em;color:rgba(248,242,232,.74)}
+.hero h1{
+  font-size:clamp(4rem,7.2vw,8.4rem);
+  line-height:.86;
+  letter-spacing:-.07em;
+  font-weight:500;
+}
+.hero__headline-line--accent{
+  margin-left:clamp(12px,1.7vw,30px);
+  color:#c9ad79;
+  font-style:italic;
+}
+.hero__subline{
+  max-width:470px;
+  margin-top:25px;
+  font-size:clamp(1.05rem,1.3vw,1.34rem);
+  line-height:1.22;
+  color:rgba(250,245,235,.9);
+}
+.hero__description{
+  max-width:450px;
+  margin-top:11px;
+  font-size:.76rem;
+  line-height:1.72;
+  color:rgba(248,242,232,.63);
+}
+.hero__actions{margin-top:25px}
+.button--editorial{
+  min-height:43px;
+  font-weight:600;
+  letter-spacing:.22em;
+}
+.button--editorial-secondary{
+  min-height:43px;
+  font-weight:500;
+  letter-spacing:.2em;
+}
+.hero__editorial-meta{
+  color:rgba(248,242,232,.62);
+  font-weight:500;
+  text-shadow:0 1px 10px rgba(0,0,0,.45);
+}
+.hero__editorial-meta i{background:rgba(201,173,121,.7)}
+.hero__progress{background:rgba(248,242,232,.22)}
+.hero__ornament--top{
+  opacity:.48;
+}
+@media(max-width:980px){
+  .site-header--home .brand-lockup__mark{width:28px;height:28px}
+  .site-header--home .brand-lockup__word{font-size:.92rem}
+  .site-header--home .brand-lockup__descriptor{font-size:.43rem}
+  .hero__content{padding-right:28%}
+}
+@media(max-width:767px){
+  .site-header--home .brand-lockup{gap:8px}
+  .site-header--home .brand-lockup__mark{width:25px;height:25px}
+  .site-header--home .brand-lockup__word{font-size:.82rem;letter-spacing:.21em}
+  .site-header--home .brand-lockup__descriptor{font-size:.39rem;letter-spacing:.3em}
+  .hero__content{padding-right:0;padding-bottom:108px}
+  .hero h1{font-size:clamp(3.25rem,16.5vw,5.1rem);line-height:.88}
+  .hero__headline-line--accent{margin-left:10px}
+  .hero__subline{max-width:320px;font-size:clamp(1rem,4.4vw,1.2rem)}
+  .hero__description{max-width:320px;font-size:.69rem;line-height:1.68}
+  .hero__actions{margin-top:21px}
+}
+@media(max-width:430px){
+  .hero__content{padding-bottom:104px}
+  .hero__actions{width:auto}
+}
