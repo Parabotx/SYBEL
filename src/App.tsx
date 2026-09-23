@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Mail, Menu, MessageCircle, ArrowDownRight, Search, ShoppingBag, UserRound, X } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Mail, Menu, MessageCircle, ArrowDownRight, Search, Settings, ShoppingBag, UserRound, X } from 'lucide-react'
 import { FiInstagram } from 'react-icons/fi'
 import { AnimatePresence, motion } from 'motion/react'
 import { type FormEvent, type ReactNode, useEffect, useState } from 'react'
@@ -137,6 +137,9 @@ function SiteHeader() {
           <button className="icon-button" type="button" aria-label="Shopping bag">
             <ShoppingBag aria-hidden="true" size={17} strokeWidth={1.2} />
           </button>
+          <button className="icon-button" type="button" aria-label="Settings">
+            <Settings aria-hidden="true" size={17} strokeWidth={1.2} />
+          </button>
         </div>
       </div>
 
@@ -218,7 +221,7 @@ function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.05, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
             >
-              Woven into
+              Culture, made
             </motion.span>
             <motion.span
               className="hero__headline-line hero__headline-line--accent"
@@ -226,7 +229,8 @@ function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.05, delay: 0.54, ease: [0.22, 1, 0.36, 1] }}
             >
-              now.
+              contemporary.
+
             </motion.span>
           </h1>
 
@@ -236,7 +240,7 @@ function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.76, ease: [0.22, 1, 0.36, 1] }}
           >
-            Habesha design, considered for the present.
+            Ethiopian heritage, designed for today.
           </motion.p>
 
           <motion.p
@@ -245,7 +249,7 @@ function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            SYBEL draws from Ethiopian textile traditions and reinterprets them through a contemporary eye.
+            SYBEL Design keeps the identity of Ethiopian cultural clothing alive while reshaping it into a modern form — made to be worn naturally and confidently today.
           </motion.p>
 
           <motion.div
