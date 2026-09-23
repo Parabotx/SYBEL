@@ -714,3 +714,16 @@ body,button,input,textarea,select{font-family:var(--sans)}
  .button--editorial-secondary:hover{padding-left:5px}
 }
 @media(prefers-reduced-motion:reduce){.hero>.hero__media,.hero>.hero__media img,.hero__progress span{animation:none!important}}
+
+/* Home mobile menu: keep the campaign atmosphere while preserving contrast */
+.site-header--home .mobile-menu{
+  background:rgba(18,13,8,.92);
+  border-top-color:rgba(245,239,228,.13);
+  box-shadow:0 18px 45px rgba(0,0,0,.18);
+}
+.site-header--home .mobile-menu__inner a{
+  color:var(--ivory);
+  border-bottom-color:rgba(245,239,228,.12);
+}
+.site-header--home .mobile-menu__inner span{color:var(--bronze-bright)}
+.site-header--home .mobile-menu__inner a:hover{color:var(--bronze-bright)}
