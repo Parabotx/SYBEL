@@ -141,8 +141,11 @@ function SiteHeader() {
                 <ShoppingBag aria-hidden="true" size={17} strokeWidth={1.15} />
               </button>
               <span className="home-utility-divider" aria-hidden="true" />
+              <button className="icon-button home-settings-button" type="button" aria-label="Settings">
+                <Settings aria-hidden="true" size={18} strokeWidth={1.15} />
+              </button>
               <button
-                className="icon-button site-header__menu"
+                className="icon-button site-header__menu home-menu-button"
                 type="button"
                 aria-label={open ? 'Close menu' : 'Open menu'}
                 aria-expanded={open}
@@ -285,29 +288,29 @@ function Home() {
               <span>WATCH THE STORY</span>
             </Link>
           </motion.div>
-        </div>
 
-        <motion.div
-          className="hero__principles"
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.02, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="hero__principle">
-            <span className="hero__principle-glyph" aria-hidden="true">◇</span>
-            <span className="hero__principle-copy"><strong>AUTHENTIC</strong><em>HERITAGE</em></span>
-          </div>
-          <div className="hero__principle-divider" aria-hidden="true" />
-          <div className="hero__principle">
-            <span className="hero__principle-glyph" aria-hidden="true">✦</span>
-            <span className="hero__principle-copy"><strong>TIMELESS</strong><em>QUALITY</em></span>
-          </div>
-          <div className="hero__principle-divider" aria-hidden="true" />
-          <div className="hero__principle">
-            <span className="hero__principle-glyph" aria-hidden="true">△</span>
-            <span className="hero__principle-copy"><strong>MODERN</strong><em>EXPRESSION</em></span>
-          </div>
-        </motion.div>
+          <motion.div
+            className="hero__principles"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 0, y: 10 }}
+            transition={{ opacity: { duration: 0.8, delay: 1.02 }, y: { duration: 0.8, delay: 1.02, ease: [0.22, 1, 0.36, 1] } }}
+          >
+            <div className="hero__principle">
+              <span className="hero__principle-glyph" aria-hidden="true">◇</span>
+              <span className="hero__principle-copy"><strong>AUTHENTIC</strong><em>HERITAGE</em></span>
+            </div>
+            <div className="hero__principle-divider" aria-hidden="true" />
+            <div className="hero__principle">
+              <span className="hero__principle-glyph" aria-hidden="true">✦</span>
+              <span className="hero__principle-copy"><strong>TIMELESS</strong><em>QUALITY</em></span>
+            </div>
+            <div className="hero__principle-divider" aria-hidden="true" />
+            <div className="hero__principle">
+              <span className="hero__principle-glyph" aria-hidden="true">△</span>
+              <span className="hero__principle-copy"><strong>MODERN</strong><em>EXPRESSION</em></span>
+            </div>
+          </motion.div>
+        </div>
 
         <motion.div
           className="hero__metadata"
