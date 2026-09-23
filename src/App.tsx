@@ -202,7 +202,6 @@ function Home() {
         />
 
         <div className="hero__atmosphere" aria-hidden="true" />
-        <div className="hero__grain" aria-hidden="true" />
 
         <div className="hero__content shell">
           <motion.span
