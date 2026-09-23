@@ -4,8 +4,9 @@ import { type FormEvent, type ReactNode, useEffect, useState } from 'react'
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { collectionTiles, homeEditorial, navItems, products, type Product } from './data/site'
 
-function BrandImage({ src, alt, label = 'SYBEL / IMAGE', eager = false, className = '' }: {
+function BrandImage({ src, mobileSrc, alt, label = 'SYBEL / IMAGE', eager = false, className = '' }: {
   src: string
+  mobileSrc?: string
   alt: string
   label?: string
   eager?: boolean
@@ -15,12 +16,15 @@ function BrandImage({ src, alt, label = 'SYBEL / IMAGE', eager = false, classNam
   return (
     <div className={'brand-image ' + className}>
       {!failed ? (
-        <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" onError={() => setFailed(true)} />
+        <picture>
+          {mobileSrc ? <source media="(max-width: 767px)" srcSet={mobileSrc} /> : null}
+          <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" onError={() => setFailed(true)} />
+        </picture>
       ) : (
         <div className="brand-image__placeholder" aria-label={alt + ' placeholder'}>
           <span className="brand-image__placeholder-kicker">{label}</span>
           <span className="brand-image__placeholder-title">Place SYBEL imagery here</span>
-          <span className="brand-image__placeholder-path">{src}</span>
+          <span className="brand-image__placeholder-path">{mobileSrc ? src + ' / ' + mobileSrc : src}</span>
         </div>
       )}
     </div>
@@ -142,7 +146,14 @@ function Home() {
   return (
     <div className="home-page">
       <section className="hero">
-        <BrandImage src={homeEditorial.hero} alt="SYBEL editorial campaign" eager label="SYBEL / CAMPAIGN IMAGE" />
+        <BrandImage
+          src={homeEditorial.hero}
+          mobileSrc={homeEditorial.heroMobile}
+          alt="SYBEL editorial campaign"
+          eager
+          label="SYBEL / CAMPAIGN IMAGE"
+          className="hero__media"
+        />
         <div className="hero__veil" />
         <div className="hero__content shell">
           <motion.span
