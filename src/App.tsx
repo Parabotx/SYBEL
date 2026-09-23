@@ -129,32 +129,53 @@ function SiteHeader() {
         </nav>
 
         <div className="site-header__actions" aria-label="Quick actions">
-          <span className="home-utility-capsule">
-            <button className="icon-button" type="button" aria-label="Search">
-              <Search aria-hidden="true" size={17} strokeWidth={1.15} />
-            </button>
-            <button className="icon-button" type="button" aria-label="Account">
-              <UserRound aria-hidden="true" size={17} strokeWidth={1.15} />
-            </button>
-            <button className="icon-button" type="button" aria-label="Shopping bag">
-              <ShoppingBag aria-hidden="true" size={17} strokeWidth={1.15} />
-            </button>
-            {!isHome ? (
+          {isHome ? (
+            <span className="home-utility-capsule">
+              <button className="icon-button" type="button" aria-label="Search">
+                <Search aria-hidden="true" size={17} strokeWidth={1.15} />
+              </button>
+              <button className="icon-button" type="button" aria-label="Account">
+                <UserRound aria-hidden="true" size={17} strokeWidth={1.15} />
+              </button>
+              <button className="icon-button" type="button" aria-label="Shopping bag">
+                <ShoppingBag aria-hidden="true" size={17} strokeWidth={1.15} />
+              </button>
+              <span className="home-utility-divider" aria-hidden="true" />
+              <button
+                className="icon-button site-header__menu"
+                type="button"
+                aria-label={open ? 'Close menu' : 'Open menu'}
+                aria-expanded={open}
+                onClick={() => setOpen((value) => !value)}
+              >
+                {open ? <X aria-hidden="true" size={18} strokeWidth={1.15} /> : <Menu aria-hidden="true" size={18} strokeWidth={1.15} />}
+              </button>
+            </span>
+          ) : (
+            <>
+              <button className="icon-button" type="button" aria-label="Search">
+                <Search aria-hidden="true" size={17} strokeWidth={1.15} />
+              </button>
+              <button className="icon-button" type="button" aria-label="Account">
+                <UserRound aria-hidden="true" size={17} strokeWidth={1.15} />
+              </button>
+              <button className="icon-button" type="button" aria-label="Shopping bag">
+                <ShoppingBag aria-hidden="true" size={17} strokeWidth={1.15} />
+              </button>
               <button className="icon-button" type="button" aria-label="Settings">
                 <Settings aria-hidden="true" size={17} strokeWidth={1.15} />
               </button>
-            ) : null}
-            <span className="home-utility-divider" aria-hidden="true" />
-            <button
-              className="icon-button site-header__menu"
-              type="button"
-              aria-label={open ? 'Close menu' : 'Open menu'}
-              aria-expanded={open}
-              onClick={() => setOpen((value) => !value)}
-            >
-              {open ? <X aria-hidden="true" size={18} strokeWidth={1.15} /> : <Menu aria-hidden="true" size={18} strokeWidth={1.15} />}
-            </button>
-          </span>
+              <button
+                className="icon-button site-header__menu"
+                type="button"
+                aria-label={open ? 'Close menu' : 'Open menu'}
+                aria-expanded={open}
+                onClick={() => setOpen((value) => !value)}
+              >
+                {open ? <X aria-hidden="true" size={18} strokeWidth={1.15} /> : <Menu aria-hidden="true" size={18} strokeWidth={1.15} />}
+              </button>
+            </>
+          )}
         </div>
       </div>
 
