@@ -2118,3 +2118,228 @@ body{
     padding-inline:7px;
   }
 }
+
+
+/* =========================================================
+   SYBEL / EDITORIAL PRINCIPLES RECOMPOSITION
+   ========================================================= */
+
+.hero--luxury .hero__content{
+  justify-content:flex-start;
+  padding-top:clamp(190px,27vh,275px);
+}
+
+.hero--luxury .hero__kicker{
+  margin-bottom:18px;
+}
+
+.hero--luxury .hero__manifesto{
+  width:min(100%,575px);
+  max-width:575px;
+  font-size:clamp(1.48rem,1.75vw,2rem);
+  line-height:1.12;
+  letter-spacing:-.022em;
+}
+
+.hero--luxury .hero__rule{
+  width:46px;
+  margin-top:17px;
+}
+
+.hero--luxury .hero__actions{
+  margin-top:18px;
+}
+
+.hero--luxury .hero__principles{
+  width:min(680px,100%);
+  min-height:auto;
+  margin-top:28px;
+  padding:15px 18px 16px;
+  display:block;
+  border:1px solid rgba(255,255,255,.17);
+  border-radius:14px;
+  background:rgba(255,255,255,.085);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.12),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  backdrop-filter:blur(11px) saturate(108%);
+  -webkit-backdrop-filter:blur(11px) saturate(108%);
+}
+
+.hero__principles-heading{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:11px;
+  margin-bottom:13px;
+  color:rgba(255,255,255,.62);
+  font-family:var(--sans);
+  font-size:.44rem;
+  font-weight:650;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+
+.hero__principles-heading i{
+  width:100%;
+  height:1px;
+  background:rgba(255,255,255,.12);
+}
+
+.hero__principles-heading small{
+  font:inherit;
+  color:rgba(249,231,194,.69);
+  letter-spacing:.17em;
+}
+
+.hero__principles-list{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.hero--luxury .hero__principle{
+  display:grid;
+  grid-template-columns:25px 1fr;
+  gap:9px;
+  align-items:start;
+  justify-content:initial;
+  padding:2px 16px;
+  min-height:40px;
+}
+
+.hero--luxury .hero__principle + .hero__principle{
+  border-left:1px solid rgba(255,255,255,.12);
+}
+
+.hero__principle-index{
+  padding-top:1px;
+  color:rgba(249,231,194,.78);
+  font-family:var(--sans);
+  font-size:.43rem;
+  font-weight:650;
+  letter-spacing:.12em;
+}
+
+.hero--luxury .hero__principle-copy{
+  display:grid;
+  gap:4px;
+}
+
+.hero--luxury .hero__principle-copy strong{
+  color:rgba(255,255,255,.9);
+  font-size:.44rem;
+  font-weight:650;
+  letter-spacing:.16em;
+}
+
+.hero--luxury .hero__principle-copy em{
+  color:rgba(255,255,255,.48);
+  font-size:.39rem;
+  font-weight:500;
+  letter-spacing:.04em;
+  line-height:1.45;
+  text-transform:none;
+}
+
+@media(max-width:1100px){
+  .hero--luxury .hero__manifesto{
+    max-width:530px;
+    font-size:clamp(1.44rem,2.15vw,1.9rem);
+  }
+
+  .hero--luxury .hero__principles{
+    width:min(650px,100%);
+  }
+}
+
+@media(max-width:980px){
+  .hero--luxury .hero__content{
+    padding-top:clamp(160px,22vh,220px);
+    padding-right:30%;
+  }
+
+  .hero--luxury .hero__manifesto{
+    max-width:500px;
+    font-size:clamp(1.4rem,2.65vw,1.82rem);
+  }
+
+  .hero--luxury .hero__principles{
+    width:min(620px,100%);
+  }
+}
+
+@media(max-width:767px){
+  .hero--luxury .hero__content{
+    padding-top:116px;
+    padding-right:0;
+    padding-bottom:138px;
+  }
+
+  .hero--luxury .hero__manifesto{
+    max-width:calc(100vw - 38px);
+    font-size:clamp(1.25rem,5.35vw,1.6rem);
+    line-height:1.12;
+  }
+
+  .hero--luxury .hero__rule{
+    margin-top:15px;
+  }
+
+  .hero--luxury .hero__actions{
+    margin-top:16px;
+  }
+
+  .hero--luxury .hero__principles{
+    width:100%;
+    margin-top:22px;
+    padding:12px 12px 13px;
+    border-radius:13px;
+  }
+
+  .hero__principles-heading{
+    grid-template-columns:auto 1fr;
+    gap:8px;
+    margin-bottom:11px;
+    font-size:.39rem;
+  }
+
+  .hero__principles-heading small{
+    display:none;
+  }
+
+  .hero__principles-list{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .hero--luxury .hero__principle,
+  .hero--luxury .hero__principle + .hero__principle{
+    grid-template-columns:24px 1fr;
+    padding:8px 3px;
+    border-left:0;
+    border-top:1px solid rgba(255,255,255,.10);
+  }
+
+  .hero--luxury .hero__principle:first-child{
+    border-top:0;
+  }
+
+  .hero--luxury .hero__principle-copy strong{
+    font-size:.43rem;
+  }
+
+  .hero--luxury .hero__principle-copy em{
+    font-size:.38rem;
+  }
+}
+
+@media(max-width:430px){
+  .hero--luxury .hero__manifesto{
+    max-width:calc(100vw - 32px);
+    font-size:clamp(1.18rem,5.2vw,1.47rem);
+  }
+
+  .hero--luxury .hero__principles{
+    margin-top:19px;
+  }
+}
