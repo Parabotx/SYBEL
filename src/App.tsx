@@ -42,20 +42,43 @@ function BrandImage({ src, mobileSrc, alt, label = 'SYBEL / IMAGE', eager = fals
 
 function BrandLogo({ variant = 'header', light = false }: { variant?: 'header' | 'footer'; light?: boolean }) {
   const [failed, setFailed] = useState(false)
-  const src = variant === 'footer'
-    ? '/assets/brand/logo-light.png'
-    : light
-      ? '/assets/brand/logo-light.png'
-      : '/assets/brand/logo-dark.png'
-  const className = variant === 'footer' ? 'footer-logo' : 'brand-logo'
 
-  if (failed) {
-    return <span className={variant === 'footer' ? 'footer-wordmark' : 'brand-wordmark'}>SYBEL</span>
+  if (variant === 'footer') {
+    return (
+      <img
+        className="footer-logo"
+        src="/assets/brand/logo-light.png"
+        alt="SYBEL"
+        onError={() => setFailed(true)}
+      />
+    )
   }
 
-  return <img className={className} src={src} alt="SYBEL" onError={() => setFailed(true)} />
-}
+  if (failed) {
+    return (
+      <span className="brand-lockup brand-lockup--fallback">
+        <span className="brand-lockup__word">SYBEL</span>
+        <span className="brand-lockup__descriptor">Design</span>
+      </span>
+    )
+  }
 
+  return (
+    <span className={'brand-lockup' + (light ? ' brand-lockup--light' : '')}>
+      <img
+        className="brand-lockup__mark"
+        src="/assets/brand/mark.png"
+        alt=""
+        aria-hidden="true"
+        onError={() => setFailed(true)}
+      />
+      <span className="brand-lockup__type">
+        <span className="brand-lockup__word">SYBEL</span>
+        <span className="brand-lockup__descriptor">Design</span>
+      </span>
+    </span>
+  )
+}
 function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   return (
     <motion.div
@@ -183,80 +206,80 @@ function Home() {
             className="hero__kicker"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            SYBEL DESIGN / HABESHA COUTURE
+            A STUDY IN HABESHA FORM
           </motion.span>
 
           <h1 id="hero-title">
             <motion.span
               className="hero__headline-line"
-              initial={{ opacity: 0, y: 42 }}
+              initial={{ opacity: 0, y: 38 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.05, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1.05, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
             >
-              Heritage,
+              Woven into
             </motion.span>
             <motion.span
               className="hero__headline-line hero__headline-line--accent"
-              initial={{ opacity: 0, y: 42 }}
+              initial={{ opacity: 0, y: 38 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.05, delay: 0.57, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1.05, delay: 0.54, ease: [0.22, 1, 0.36, 1] }}
             >
-              reimagined.
+              now.
             </motion.span>
           </h1>
 
           <motion.p
             className="hero__subline"
-            initial={{ opacity: 0, y: 22 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.76, ease: [0.22, 1, 0.36, 1] }}
           >
-            Where Ethiopian heritage becomes contemporary expression.
+            Habesha design, considered for the present.
           </motion.p>
 
           <motion.p
             className="hero__description"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.92, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            Rooted in tradition and shaped by modern design, SYBEL creates Habesha clothing that carries culture forward — with elegance, individuality, and intention.
+            SYBEL draws from Ethiopian textile traditions and reinterprets them through a contemporary eye.
           </motion.p>
 
           <motion.div
             className="hero__actions"
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 1.02, ease: [0.22, 1, 0.36, 1] }}
           >
             <Link className="button button--editorial" to="/collection">
-              <span>Explore collections</span>
+              <span>View the collection</span>
               <ArrowRight aria-hidden="true" size={17} strokeWidth={1.2} />
             </Link>
             <Link className="button button--editorial-secondary" to="/about">
-              Discover SYBEL
+              The house
             </Link>
           </motion.div>
         </div>
 
         <motion.div
           className="hero__editorial-meta hero__editorial-meta--left"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.18 }}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.12 }}
         >
-          <span>ETHIOPIAN CRAFT</span><i aria-hidden="true" /><span>CONTEMPORARY FORM</span>
+          <span>ORIGIN</span><i aria-hidden="true" /><span>FORM</span>
         </motion.div>
 
         <motion.div
           className="hero__editorial-meta hero__editorial-meta--right"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.25 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <span>01 / 03</span>
+          <span>01 — 03</span>
           <div className="hero__progress" aria-hidden="true"><span /></div>
         </motion.div>
 
@@ -264,9 +287,10 @@ function Home() {
           className="hero__scroll"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.3 }}
+          transition={{ duration: 0.8, delay: 1.25 }}
         >
-          <span>Scroll</span><ArrowDown aria-hidden="true" size={14} strokeWidth={1.1} />
+          <span>Scroll</span>
+          <ArrowDown aria-hidden="true" size={14} strokeWidth={1.1} />
         </motion.div>
 
         <span className="hero__ornament hero__ornament--top" aria-hidden="true" />
