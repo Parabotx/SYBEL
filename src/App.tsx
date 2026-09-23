@@ -253,15 +253,11 @@ function Home() {
           <motion.h1
             id="hero-title"
             className="hero__manifesto"
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.34, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, delay: 0.34, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="hero__manifesto-line hero__manifesto-line--lead">SYBEL carries the beauty</span>
-            <span className="hero__manifesto-line">of Ethiopian cultural clothing into</span>
-            <span className="hero__manifesto-line">the present, preserving its identity</span>
-            <span className="hero__manifesto-line">while reshaping it for the way we live,</span>
-            <span className="hero__manifesto-line">move, and express ourselves today.</span>
+            SYBEL carries the beauty of Ethiopian cultural clothing into the present, preserving its identity while reshaping it for the way we live, move, and express ourselves today.
           </motion.h1>
 
           <motion.div
