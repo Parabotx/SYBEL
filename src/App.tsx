@@ -169,7 +169,6 @@ function Home() {
       <section className="hero" aria-labelledby="hero-title">
         <BrandImage
           src={homeEditorial.hero}
-          mobileSrc={homeEditorial.heroMobile}
           alt="SYBEL editorial campaign featuring a Habesha garment"
           eager
           label="SYBEL / CAMPAIGN IMAGE"
