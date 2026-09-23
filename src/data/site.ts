@@ -69,8 +69,7 @@ export const collectionTiles = [
 ]
 
 export const homeEditorial = {
-  hero: '/assets/images/home-hero.png',
-  heroMobile: '/assets/images/home-hero-mobile.png',
+  hero: '/assets/images/home-hero.webp',
   story: '/assets/images/editorial-craft.png',
   detail: '/assets/images/editorial-detail.png',
 }
