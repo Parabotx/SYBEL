@@ -68,7 +68,7 @@ function SiteHeader() {
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
+          {open ? <X aria-hidden="true" size={19} strokeWidth={1.35} /> : <Menu aria-hidden="true" size={19} strokeWidth={1.35} />}
         </button>
 
         <Link className="brand-logo-link" to="/" aria-label="SYBEL home"><BrandLogo /></Link>
@@ -86,8 +86,8 @@ function SiteHeader() {
         </nav>
 
         <div className="site-header__actions">
-          <button className="icon-button" type="button" aria-label="Search"><Search size={19} strokeWidth={1.5} /></button>
-          <button className="icon-button" type="button" aria-label="Shopping bag"><ShoppingBag size={19} strokeWidth={1.5} /></button>
+          <button className="icon-button" type="button" aria-label="Search"><Search aria-hidden="true" size={18} strokeWidth={1.35} /></button>
+          <button className="icon-button" type="button" aria-label="Shopping bag"><ShoppingBag aria-hidden="true" size={18} strokeWidth={1.35} /></button>
         </div>
       </div>
 
@@ -125,7 +125,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
     >
       <Link to="/collection" className="product-card__media">
         <BrandImage src={product.image} alt={product.name} label={product.eyebrow} />
-        <span className="product-card__arrow"><ArrowUpRight size={18} /></span>
+        <span className="product-card__arrow"><ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.35} /></span>
       </Link>
       <div className="product-card__meta">
         <div>
@@ -166,10 +166,10 @@ function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
           >
-            <Link className="button button--light" to="/collection">Discover the collection <ArrowRight size={17} /></Link>
+            <Link className="button button--light" to="/collection">Discover the collection <ArrowRight aria-hidden="true" size={17} strokeWidth={1.35} /></Link>
           </motion.div>
         </div>
-        <div className="hero__scroll"><span>Scroll to explore</span><ArrowDown size={16} /></div>
+        <div className="hero__scroll"><span>Scroll to explore</span><ArrowDown aria-hidden="true" size={15} strokeWidth={1.3} /></div>
       </section>
 
       <section className="section section--intro">
@@ -180,7 +180,7 @@ function Home() {
               SYBEL is a new expression of <em>Habesha dress</em>—rooted in craft,
               refined through contemporary form, and made to be remembered.
             </p>
-            <Link className="text-link" to="/about">Discover our story <MoveDownRight size={16} /></Link>
+            <Link className="text-link" to="/about">Discover our story <MoveDownRight aria-hidden="true" size={15} strokeWidth={1.3} /></Link>
           </Reveal>
         </div>
       </section>
@@ -189,7 +189,7 @@ function Home() {
         <div className="shell">
           <Reveal className="section-heading-row">
             <div><span className="section-number">02 / SIGNATURE WORK</span><h2>Selected pieces</h2></div>
-            <Link className="text-link" to="/collection">View collection <ArrowRight size={16} /></Link>
+            <Link className="text-link" to="/collection">View collection <ArrowRight aria-hidden="true" size={15} strokeWidth={1.3} /></Link>
           </Reveal>
           <div className="product-grid">{products.map((product, index) => <ProductCard key={product.name} product={product} index={index} />)}</div>
         </div>
@@ -284,7 +284,7 @@ function Collection() {
 
       <section className="quote-band">
         <div className="shell">
-          <Link className="back-link" to="/"><ArrowLeft size={16} /> Back home</Link>
+          <Link className="back-link" to="/"><ArrowLeft aria-hidden="true" size={15} strokeWidth={1.3} /> Back home</Link>
           <blockquote>“Tradition becomes contemporary when we design it with intention.”</blockquote>
         </div>
       </section>
@@ -348,9 +348,9 @@ function Contact() {
               <span className="section-number">02 / DIRECT</span>
               <h2>Speak with SYBEL.</h2>
               <p className="muted-note">Replace these placeholders with the official brand contact details when the company assets are added.</p>
-              <a href="mailto:hello@sybel.example"><Mail size={17} /> hello@sybel.example</a>
-              <a href="#"><MessageCircle size={17} /> WhatsApp / phone</a>
-              <a href="#"><Instagram size={17} /> Instagram</a>
+              <a href="mailto:hello@sybel.example"><Mail aria-hidden="true" size={16} strokeWidth={1.3} /> hello@sybel.example</a>
+              <a href="#"><MessageCircle aria-hidden="true" size={16} strokeWidth={1.3} /> WhatsApp / phone</a>
+              <a href="#"><Instagram aria-hidden="true" size={16} strokeWidth={1.3} /> Instagram</a>
             </div>
           </Reveal>
 
@@ -390,8 +390,8 @@ function SiteFooter() {
         </div>
         <div className="footer-column">
           <span className="footer-label">Connect</span>
-          <a href="#" aria-label="Instagram"><Instagram size={16} /> Instagram</a>
-          <a href="mailto:hello@sybel.example"><Mail size={16} /> Email</a>
+          <a href="#" aria-label="Instagram"><Instagram aria-hidden="true" size={15} strokeWidth={1.3} /> Instagram</a>
+          <a href="mailto:hello@sybel.example"><Mail aria-hidden="true" size={15} strokeWidth={1.3} /> Email</a>
         </div>
         <div className="footer-cta">
           <span className="footer-label">Private inquiries</span>
