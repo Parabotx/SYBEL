@@ -18,7 +18,15 @@ function BrandImage({ src, mobileSrc, alt, label = 'SYBEL / IMAGE', eager = fals
       {!failed ? (
         <picture>
           {mobileSrc ? <source media="(max-width: 767px)" srcSet={mobileSrc} /> : null}
-          <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" onError={() => setFailed(true)} />
+          <img
+            src={src}
+            alt={alt}
+            loading={eager ? 'eager' : 'lazy'}
+            fetchPriority={eager ? 'high' : 'auto'}
+            decoding="async"
+            sizes="100vw"
+            onError={() => setFailed(true)}
+          />
         </picture>
       ) : (
         <div className="brand-image__placeholder" aria-label={alt + ' placeholder'}>
