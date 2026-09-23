@@ -2040,3 +2040,81 @@ body{
     font-size:clamp(1.24rem,5.55vw,1.55rem);
   }
 }
+
+
+/* SYBEL / principle placement + responsive desktop utility */
+.hero--luxury .hero__content{
+  align-items:flex-start;
+}
+
+.hero--luxury .hero__principles{
+  position:relative;
+  left:auto;
+  bottom:auto;
+  z-index:4;
+  width:min(590px,100%);
+  min-height:62px;
+  margin-top:26px;
+  padding:7px 12px;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:16px;
+  background:rgba(255,255,255,.13);
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.12),
+    inset 0 1px 0 rgba(255,255,255,.14);
+  backdrop-filter:blur(12px) saturate(105%);
+  -webkit-backdrop-filter:blur(12px) saturate(105%);
+}
+
+.hero--luxury .hero__principle{
+  justify-content:flex-start;
+}
+
+.hero--luxury .hero__principle-copy strong{
+  color:rgba(255,255,255,.92);
+}
+
+.hero--luxury .hero__principle-copy em{
+  color:rgba(255,255,255,.62);
+}
+
+.hero--luxury .hero__principle-divider{
+  background:rgba(255,255,255,.2);
+}
+
+.hero--luxury .hero__principle-glyph{
+  color:rgba(249,231,194,.95);
+}
+
+.home-settings-button{
+  display:grid;
+}
+
+.home-menu-button{
+  display:none!important;
+}
+
+@media(max-width:767px){
+  .hero--luxury .hero__principles{
+    width:100%;
+    margin-top:21px;
+    min-height:57px;
+    padding:6px 8px;
+    border-radius:14px;
+  }
+
+  .home-settings-button{
+    display:none;
+  }
+
+  .home-menu-button{
+    display:grid!important;
+  }
+}
+
+@media(max-width:430px){
+  .hero--luxury .hero__principles{
+    margin-top:18px;
+    padding-inline:7px;
+  }
+}
