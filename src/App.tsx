@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Mail, Menu, MessageCircle, ArrowDownRight, Search, ShoppingBag, X } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Mail, Menu, MessageCircle, ArrowDownRight, Search, ShoppingBag, UserRound, X } from 'lucide-react'
 import { FiInstagram } from 'react-icons/fi'
 import { AnimatePresence, motion } from 'motion/react'
 import { type FormEvent, type ReactNode, useEffect, useState } from 'react'
@@ -40,11 +40,13 @@ function BrandImage({ src, mobileSrc, alt, label = 'SYBEL / IMAGE', eager = fals
   )
 }
 
-function BrandLogo({ variant = 'header' }: { variant?: 'header' | 'footer' }) {
+function BrandLogo({ variant = 'header', light = false }: { variant?: 'header' | 'footer'; light?: boolean }) {
   const [failed, setFailed] = useState(false)
   const src = variant === 'footer'
     ? '/assets/brand/logo-light.png'
-    : '/assets/brand/logo-dark.png'
+    : light
+      ? '/assets/brand/logo-light.png'
+      : '/assets/brand/logo-dark.png'
   const className = variant === 'footer' ? 'footer-logo' : 'brand-logo'
 
   if (failed) {
@@ -70,9 +72,11 @@ function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; 
 
 function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   return (
-    <header className="site-header">
+    <header className={'site-header' + (isHome ? ' site-header--home' : '')}>
       <div className="site-header__inner shell">
         <button
           className="icon-button site-header__menu"
@@ -81,26 +85,35 @@ function SiteHeader() {
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X aria-hidden="true" size={19} strokeWidth={1.35} /> : <Menu aria-hidden="true" size={19} strokeWidth={1.35} />}
+          {open ? <X aria-hidden="true" size={19} strokeWidth={1.25} /> : <Menu aria-hidden="true" size={19} strokeWidth={1.25} />}
         </button>
 
-        <Link className="brand-logo-link" to="/" aria-label="SYBEL home"><BrandLogo /></Link>
+        <Link className="brand-logo-link" to="/" aria-label="SYBEL home">
+          <BrandLogo light={isHome} />
+        </Link>
 
         <nav className="site-header__nav" aria-label="Main navigation">
           {navItems.map((item) => (
             <NavLink
-              key={item.href}
+              key={item.href + item.label}
               to={item.href}
-              className={({ isActive }) => 'nav-link' + (isActive ? ' nav-link--active' : '')}
+              className={({ isActive }) => 'nav-link' + (isActive && item.label !== 'NEW' ? ' nav-link--active' : '')}
             >
               {item.label}
             </NavLink>
           ))}
         </nav>
 
-        <div className="site-header__actions">
-          <button className="icon-button" type="button" aria-label="Search"><Search aria-hidden="true" size={18} strokeWidth={1.35} /></button>
-          <button className="icon-button" type="button" aria-label="Shopping bag"><ShoppingBag aria-hidden="true" size={18} strokeWidth={1.35} /></button>
+        <div className="site-header__actions" aria-label="Quick actions">
+          <button className="icon-button" type="button" aria-label="Search">
+            <Search aria-hidden="true" size={17} strokeWidth={1.2} />
+          </button>
+          <button className="icon-button" type="button" aria-label="Account">
+            <UserRound aria-hidden="true" size={17} strokeWidth={1.2} />
+          </button>
+          <button className="icon-button" type="button" aria-label="Shopping bag">
+            <ShoppingBag aria-hidden="true" size={17} strokeWidth={1.2} />
+          </button>
         </div>
       </div>
 
@@ -111,11 +124,11 @@ function SiteHeader() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="shell mobile-menu__inner">
               {navItems.map((item, index) => (
-                <Link key={item.href} to={item.href} onClick={() => setOpen(false)}>
+                <Link key={item.href + item.label} to={item.href} onClick={() => setOpen(false)}>
                   <span>0{index + 1}</span>{item.label}
                 </Link>
               ))}
@@ -126,7 +139,6 @@ function SiteHeader() {
     </header>
   )
 }
-
 function ProductCard({ product, index }: { product: Product; index: number }) {
   return (
     <motion.article
@@ -154,122 +166,116 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 function Home() {
   return (
     <div className="home-page">
-      <section className="hero">
+      <section className="hero" aria-labelledby="hero-title">
         <BrandImage
           src={homeEditorial.hero}
           mobileSrc={homeEditorial.heroMobile}
-          alt="SYBEL editorial campaign"
+          alt="SYBEL editorial campaign featuring a Habesha garment"
           eager
           label="SYBEL / CAMPAIGN IMAGE"
           className="hero__media"
         />
-        <div className="hero__veil" />
+
+        <div className="hero__atmosphere" aria-hidden="true" />
+        <div className="hero__grain" aria-hidden="true" />
+
         <div className="hero__content shell">
           <motion.span
             className="hero__kicker"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            HABESHA CLOTHING / SYBEL
+            SYBEL DESIGN / HABESHA COUTURE
           </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
+
+          <h1 id="hero-title">
+            <motion.span
+              className="hero__headline-line"
+              initial={{ opacity: 0, y: 42 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.05, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            >
+              Heritage,
+            </motion.span>
+            <motion.span
+              className="hero__headline-line hero__headline-line--accent"
+              initial={{ opacity: 0, y: 42 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.05, delay: 0.57, ease: [0.22, 1, 0.36, 1] }}
+            >
+              reimagined.
+            </motion.span>
+          </h1>
+
+          <motion.p
+            className="hero__subline"
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            Heritage,<em> reimagined.</em>
-          </motion.h1>
+            Where Ethiopian heritage becomes contemporary expression.
+          </motion.p>
+
+          <motion.p
+            className="hero__description"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.92, ease: [0.22, 1, 0.36, 1] }}
+          >
+            Rooted in tradition and shaped by modern design, SYBEL creates Habesha clothing that carries culture forward — with elegance, individuality, and intention.
+          </motion.p>
+
           <motion.div
             className="hero__actions"
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45 }}
+            transition={{ duration: 0.85, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Link className="button button--light" to="/collection">Discover the collection <ArrowRight aria-hidden="true" size={17} strokeWidth={1.35} /></Link>
+            <Link className="button button--editorial" to="/collection">
+              <span>Explore collections</span>
+              <ArrowRight aria-hidden="true" size={17} strokeWidth={1.2} />
+            </Link>
+            <Link className="button button--editorial-secondary" to="/about">
+              Discover SYBEL
+            </Link>
           </motion.div>
         </div>
-        <div className="hero__scroll"><span>Scroll to explore</span><ArrowDown aria-hidden="true" size={15} strokeWidth={1.3} /></div>
-      </section>
 
-      <section className="section section--intro">
-        <div className="shell intro-grid">
-          <Reveal><span className="section-number">01 / THE HOUSE</span></Reveal>
-          <Reveal delay={0.08}>
-            <p className="display-copy">
-              SYBEL is a new expression of <em>Habesha dress</em>—rooted in craft,
-              refined through contemporary form, and made to be remembered.
-            </p>
-            <Link className="text-link" to="/about">Discover our story <ArrowDownRight aria-hidden="true" size={15} strokeWidth={1.3} /></Link>
-          </Reveal>
-        </div>
-      </section>
+        <motion.div
+          className="hero__editorial-meta hero__editorial-meta--left"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.18 }}
+        >
+          <span>ETHIOPIAN CRAFT</span><i aria-hidden="true" /><span>CONTEMPORARY FORM</span>
+        </motion.div>
 
-      <section className="section section--collection">
-        <div className="shell">
-          <Reveal className="section-heading-row">
-            <div><span className="section-number">02 / SIGNATURE WORK</span><h2>Selected pieces</h2></div>
-            <Link className="text-link" to="/collection">View collection <ArrowRight aria-hidden="true" size={15} strokeWidth={1.3} /></Link>
-          </Reveal>
-          <div className="product-grid">{products.map((product, index) => <ProductCard key={product.name} product={product} index={index} />)}</div>
-        </div>
-      </section>
+        <motion.div
+          className="hero__editorial-meta hero__editorial-meta--right"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.25 }}
+        >
+          <span>01 / 03</span>
+          <div className="hero__progress" aria-hidden="true"><span /></div>
+        </motion.div>
 
-      <section className="section section--tiles">
-        <div className="shell">
-          <Reveal className="section-heading-row">
-            <div><span className="section-number">03 / THE LANGUAGE</span><h2>Three ways to enter SYBEL</h2></div>
-          </Reveal>
-          <div className="collection-tiles">
-            {collectionTiles.map((tile, index) => (
-              <Reveal key={tile.title} delay={index * 0.07}>
-                <Link to="/collection" className="collection-tile">
-                  <BrandImage src={tile.image} alt={tile.title} label={tile.kicker} />
-                  <div className="collection-tile__caption"><span>{tile.kicker}</span><h3>{tile.title}</h3><ArrowRight aria-hidden="true" size={16} strokeWidth={1.3} /></div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+        <motion.div
+          className="hero__scroll"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.3 }}
+        >
+          <span>Scroll</span><ArrowDown aria-hidden="true" size={14} strokeWidth={1.1} />
+        </motion.div>
 
-      <section className="split-story">
-        <div className="split-story__image"><BrandImage src={homeEditorial.story} alt="Handcrafted textile detail" label="SYBEL / CRAFT" /></div>
-        <div className="split-story__content">
-          <Reveal>
-            <span className="section-number">04 / CRAFT</span>
-            <h2>Every thread carries a memory.</h2>
-            <p>
-              From the architecture of the silhouette to the smallest woven detail,
-              SYBEL treats Ethiopian visual language as a living design system—not a costume.
-            </p>
-            <Link className="text-link" to="/about">Read the SYBEL story <ArrowRight aria-hidden="true" size={15} strokeWidth={1.3} /></Link>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section section--detail">
-        <div className="shell detail-grid">
-          <Reveal>
-            <span className="section-number">05 / DETAIL</span>
-            <h2>Quiet luxury, made visible.</h2>
-            <p>Texture, proportion, movement, and restraint do the work. Gold belongs here as a material note—a glint, not a flood.</p>
-          </Reveal>
-          <Reveal delay={0.08}><BrandImage src={homeEditorial.detail} alt="SYBEL fabric and embroidery detail" label="SYBEL / DETAIL" className="detail-image" /></Reveal>
-        </div>
-      </section>
-
-      <section className="closing-cta">
-        <div className="shell closing-cta__inner">
-          <span className="section-number">06 / NEXT</span>
-          <h2>Dress the moment.</h2>
-          <Link className="button button--dark" to="/collection">Explore SYBEL <ArrowRight aria-hidden="true" size={16} strokeWidth={1.3} /></Link>
-        </div>
+        <span className="hero__ornament hero__ornament--top" aria-hidden="true" />
+        <span className="hero__ornament hero__ornament--bottom" aria-hidden="true" />
       </section>
     </div>
   )
 }
-
 function Collection() {
   return (
     <div className="inner-page">
