@@ -291,23 +291,37 @@ function Home() {
 
           <motion.div
             className="hero__principles"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 0, y: 10 }}
-            transition={{ opacity: { duration: 0.8, delay: 1.02 }, y: { duration: 0.8, delay: 1.02, ease: [0.22, 1, 0.36, 1] } }}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 1.02, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="hero__principle">
-              <span className="hero__principle-glyph" aria-hidden="true">◇</span>
-              <span className="hero__principle-copy"><strong>AUTHENTIC</strong><em>HERITAGE</em></span>
+            <div className="hero__principles-heading">
+              <span>THE SYBEL LANGUAGE</span>
+              <i aria-hidden="true" />
+              <small>ROOTED / REFINED / PRESENT</small>
             </div>
-            <div className="hero__principle-divider" aria-hidden="true" />
-            <div className="hero__principle">
-              <span className="hero__principle-glyph" aria-hidden="true">✦</span>
-              <span className="hero__principle-copy"><strong>TIMELESS</strong><em>QUALITY</em></span>
-            </div>
-            <div className="hero__principle-divider" aria-hidden="true" />
-            <div className="hero__principle">
-              <span className="hero__principle-glyph" aria-hidden="true">△</span>
-              <span className="hero__principle-copy"><strong>MODERN</strong><em>EXPRESSION</em></span>
+            <div className="hero__principles-list">
+              <div className="hero__principle">
+                <span className="hero__principle-index">01</span>
+                <span className="hero__principle-copy">
+                  <strong>AUTHENTIC HERITAGE</strong>
+                  <em>Rooted in Ethiopian identity</em>
+                </span>
+              </div>
+              <div className="hero__principle">
+                <span className="hero__principle-index">02</span>
+                <span className="hero__principle-copy">
+                  <strong>TIMELESS QUALITY</strong>
+                  <em>Made with intention and restraint</em>
+                </span>
+              </div>
+              <div className="hero__principle">
+                <span className="hero__principle-index">03</span>
+                <span className="hero__principle-copy">
+                  <strong>MODERN EXPRESSION</strong>
+                  <em>Designed for how we live now</em>
+                </span>
+              </div>
             </div>
           </motion.div>
         </div>
