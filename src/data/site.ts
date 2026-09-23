@@ -12,9 +12,11 @@ export type Product = {
 }
 
 export const navItems: NavItem[] = [
-  { label: 'Collection', href: '/collection' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'NEW', href: '/collection' },
+  { label: 'COLLECTIONS', href: '/collection' },
+  { label: 'WOMAN', href: '/collection#pieces' },
+  { label: 'MAN', href: '/collection#pieces' },
+  { label: 'CONTACT', href: '/contact' },
 ]
 
 export const products: Product[] = [
