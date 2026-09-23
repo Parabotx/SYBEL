@@ -591,6 +591,8 @@ img { display: block; max-width: 100%; }
     gap: 12px;
   }
 
+}
+
 @media (max-width: 640px) {
   :root { --shell: calc(100vw - 28px); }
   .site-header__inner { min-height: 68px; }
